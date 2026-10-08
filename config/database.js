@@ -13,7 +13,7 @@ const dbConfig = {
   connectionLimit: 10,
   queueLimit: 0,
   multipleStatements: true,
-  ssl: process.env.NODE_ENV === 'production'
+  ssl: parseInt(process.env.DB_PORT || '3306', 10) === 4000
     ? {
         minVersion: 'TLSv1.2',
         rejectUnauthorized: true
