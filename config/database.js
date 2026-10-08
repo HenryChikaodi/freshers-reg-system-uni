@@ -12,7 +12,13 @@ const dbConfig = {
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  multipleStatements: true
+  multipleStatements: true,
+  ssl: process.env.NODE_ENV === 'production'
+    ? {
+        minVersion: 'TLSv1.2',
+        rejectUnauthorized: true
+      }
+    : undefined
 };
 
 let pool = null;
